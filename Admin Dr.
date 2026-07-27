@@ -4,9 +4,9 @@
 <meta name="theme-color" content="#0f4c3a"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-<meta name="apple-mobile-web-app-title" content="Admin Dr."/>
-<link rel="manifest" href="manifest-admin.json"/>
-<link rel="apple-touch-icon" href="icon-admin-192.png"/>
+<meta name="apple-mobile-web-app-title" content="Tu Consultorio"/>
+<link rel="manifest" href="manifest.json"/>
+<link rel="apple-touch-icon" href="icon-192.png"/>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Admin · Tu Consultorio Médico</title>
