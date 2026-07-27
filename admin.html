@@ -39,6 +39,7 @@ input:focus,textarea:focus,select:focus{outline:none;box-shadow:0 0 0 2px rgba(1
 <div id="root"></div>
 <script>
 const LOGO="icon-192.png";
+const{useState,useEffect,useRef,useCallback}=React;
 const PRODUCTS_CSV="https://docs.google.com/spreadsheets/d/e/2PACX-1vSTTwObvgTnlsDDxp_u8WCJV7XJfgoOCtS3cLeTO8A_BUxJfVAOK6ZZVKBIto0FPbtbcmZJOTxDEQeY/pub?output=csv";
 const CITAS_SHEET_URL="https://docs.google.com/spreadsheets/d/e/2PACX-1vRxfsAZV45rIJ4nC-oaDme_LPHmAHELf51bxrlcGFQNRAPez4paMXBPAKgefg5xPkkPb6NMog9Jcvdb/pub?output=csv";
 const PEDIDOS_SHEET_URL="https://docs.google.com/spreadsheets/d/e/2PACX-1vQbQkIq5Itx1D-sOzsax4sf6H38OtqAFhdF5N-P06GCYWy92sbcBHydoGLD0Bz76bgiNSMhACI7s9Eo/pub?output=csv";
