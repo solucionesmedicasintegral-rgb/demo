@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="Dr. Morales"/>
 <link rel="manifest" href="manifest.json"/>
 <link rel="apple-touch-icon" href="icon-192.png"/>
-<title>App Pacientes - Dr. Gabriel Morales</title>
+<title>App Pacientes - Tu Consultorio Médico</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -98,7 +98,7 @@ var bookAppt=function(a,pi){var n=Object.assign({},a,{id:"CITA-"+Math.floor(100+
 // LOGIN SCREEN
 if(!paciente)return h("div",{className:"min-h-screen w-full flex items-center justify-center",style:{background:"linear-gradient(135deg,#2f5b8a,#1a3d5c)"}},
 h("div",{className:"w-full max-w-[380px] mx-4"},
-h("div",{className:"text-center mb-8"},h("img",{src:LOGO,alt:"Logo",className:"h-20 mx-auto mb-4 opacity-95",style:{filter:"brightness(1.1)"}}),h("h1",{className:"font-display text-2xl font-semibold text-white"},"Dr. Gabriel Morales"),h("p",{className:"text-blue-200 text-sm"},"")),
+h("div",{className:"text-center mb-8"},h("img",{src:LOGO,alt:"Logo",className:"h-20 mx-auto mb-4 opacity-95",style:{filter:"brightness(1.1)"}}),h("h1",{className:"font-display text-2xl font-semibold text-white"},"Tu Consultorio Médico"),h("p",{className:"text-blue-200 text-sm"},"")),
 h("div",{className:"bg-white rounded-3xl p-6 shadow-2xl"},
 h("h2",{className:"text-slate-800 font-semibold text-lg mb-1 text-center"},"Bienvenida"),
 h("p",{className:"text-sm text-slate-500 text-center mb-5"},"Ingresa tu número de WhatsApp"),
@@ -109,7 +109,7 @@ noEncontrado?h("div",{className:"fade-in space-y-3 mb-3"},h("p",{className:"text
 return h("div",{className:"min-h-screen w-full flex flex-col items-center",style:{background:"linear-gradient(135deg,#f1f4f8,#e8ecf2)"}},
 h(Toast,{msg:toast,type:toastType}),
 h("div",{className:"w-full max-w-[420px] bg-white rounded-b-3xl shadow-xl overflow-hidden flex flex-col",style:{minHeight:"100vh"}},
-h("div",{className:"text-white px-5 pt-4 pb-4",style:{background:"linear-gradient(135deg,#2f5b8a,#1a3d5c)"}},h("div",{className:"flex items-center gap-3"},h("img",{src:LOGO,alt:"Logo",className:"h-14 w-auto opacity-95",style:{filter:"brightness(1.1)"}}),h("div",null,h("p",{className:"font-display font-semibold text-lg leading-tight"},"Dr. Gabriel Morales"),h("p",{className:"text-blue-200 text-[11px] tracking-wide uppercase"},"Especialidad Médica")))),
+h("div",{className:"text-white px-5 pt-4 pb-4",style:{background:"linear-gradient(135deg,#2f5b8a,#1a3d5c)"}},h("div",{className:"flex items-center gap-3"},h("img",{src:LOGO,alt:"Logo",className:"h-14 w-auto opacity-95",style:{filter:"brightness(1.1)"}}),h("div",null,h("p",{className:"font-display font-semibold text-lg leading-tight"},"Tu Consultorio Médico"),h("p",{className:"text-blue-200 text-[11px] tracking-wide uppercase"},"Especialidad Médica")))),
 h("div",{className:"flex-1 overflow-y-auto",style:{background:"#f8f9fc"}},
 checkout?h(Checkout,{cart:cart,total:ct,onBack:function(){setCheckout(false)},onPay:confirmOrder,setCart:setCart})
 :tab==="pago_pendiente"?h(PagoPendiente,{data:data,setTab:setTab})
