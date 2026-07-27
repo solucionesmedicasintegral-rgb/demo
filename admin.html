@@ -9,7 +9,7 @@
 <link rel="apple-touch-icon" href="icon-admin-192.png"/>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Admin · Dr. Gabriel Morales</title>
+<title>Admin · Tu Consultorio Médico</title>
 <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
 <script src="https://cdn.tailwindcss.com"></script>
@@ -308,7 +308,7 @@ return h("div",{className:"min-h-screen",style:{background:"linear-gradient(135d
 h(Toast,{msg:toast,type:toastType}),
 h("div",{className:"w-full max-w-[1000px] mx-auto py-4 px-3"},
 h("div",{className:"text-white rounded-2xl px-6 py-4 flex items-center justify-between flex-wrap gap-3 mb-4",style:{background:"linear-gradient(135deg,#064e3b,#065f46)"}},
-h("div",{className:"flex items-center gap-3"},h("img",{src:LOGO,alt:"Logo",className:"h-10 opacity-90"}),h("div",null,h("p",{className:"text-emerald-300 text-xs font-medium"},"PANEL ADMINISTRADOR"),h("p",{className:"font-display font-semibold text-lg"},"Dr. Gabriel Morales"))),
+h("div",{className:"flex items-center gap-3"},h("img",{src:LOGO,alt:"Logo",className:"h-10 opacity-90"}),h("div",null,h("p",{className:"text-emerald-300 text-xs font-medium"},"PANEL ADMINISTRADOR"),h("p",{className:"font-display font-semibold text-lg"},"Tu Consultorio Médico"))),
 h("div",{className:"flex items-center gap-2"},
 h(NotifBell,{count:notifCount,onClick:()=>{if(notifCount>0){showToast(notifMessages.join(" · "));markAsSeen()}else{showToast("Sin notificaciones nuevas")}}}),
 h("button",{onClick:()=>{checkNewData();loadCitasFromSheet();loadPedidosFromSheet();showToast("Datos actualizados")},className:"p-2 rounded-lg hover:bg-white/10 transition text-emerald-200",title:"Actualizar"},h(Ico,{name:"RefreshCw",size:18})),
@@ -349,8 +349,8 @@ o.linkPago&&el!==o.id?h("div",{className:"flex items-center gap-2"},h("a",{href:
 :h("button",{onClick:()=>{setEl(o.id);setLv("")},className:"text-sm text-brand-600 font-medium"},"+ Agregar link")),
 h("div",{className:"flex gap-2 flex-wrap"},
 o.estado!=="entregado"&&h("button",{onClick:()=>avanzar(o.id),className:"text-brand-700 text-sm font-medium flex items-center gap-1 bg-brand-50 px-3 py-1.5 rounded-lg hover:bg-brand-100"},"Avanzar ",h(Ico,{name:"ChevronRight",size:14})),
-o.telefono&&o.linkPago&&h("button",{onClick:()=>wa(o.telefono,"Hola "+o.paciente+", aquí tienes tu link de pago para tu pedido "+o.id+": "+o.linkPago+" - Dr. Gabriel Morales"),className:"text-green-700 text-sm font-medium flex items-center gap-1 bg-green-50 px-3 py-1.5 rounded-lg hover:bg-green-100"},h(Ico,{name:"Send",size:14})," WhatsApp link"),
-o.telefono&&!o.linkPago&&o.estado==="pendiente"&&h("button",{onClick:()=>wa(o.telefono,"Hola "+o.paciente+", recibí tu pedido "+o.id+" por "+money(o.total)+". En breve te envío tu link de pago. - Dr. Gabriel Morales"),className:"text-green-700 text-sm font-medium flex items-center gap-1 bg-green-50 px-3 py-1.5 rounded-lg hover:bg-green-100"},h(Ico,{name:"Phone",size:14})," Avisar")))));
+o.telefono&&o.linkPago&&h("button",{onClick:()=>wa(o.telefono,"Hola "+o.paciente+", aquí tienes tu link de pago para tu pedido "+o.id+": "+o.linkPago+" - Tu Consultorio Médico"),className:"text-green-700 text-sm font-medium flex items-center gap-1 bg-green-50 px-3 py-1.5 rounded-lg hover:bg-green-100"},h(Ico,{name:"Send",size:14})," WhatsApp link"),
+o.telefono&&!o.linkPago&&o.estado==="pendiente"&&h("button",{onClick:()=>wa(o.telefono,"Hola "+o.paciente+", recibí tu pedido "+o.id+" por "+money(o.total)+". En breve te envío tu link de pago. - Tu Consultorio Médico"),className:"text-green-700 text-sm font-medium flex items-center gap-1 bg-green-50 px-3 py-1.5 rounded-lg hover:bg-green-100"},h(Ico,{name:"Phone",size:14})," Avisar")))));
 }
 function ACitas({data,ud,wa,showToast,config,loadCitasFromSheet}){
 const[el,setEl]=useState(null);const[lv,setLv]=useState("");
@@ -365,7 +365,7 @@ const meses=["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","
 const d=new Date(citaForm.fecha+"T12:00:00");
 const fechaLabel=diasSem[d.getDay()]+" "+d.getDate()+" "+meses[d.getMonth()];
 const cita={id:"CITA-"+Math.floor(100+Math.random()*9e3),paciente:citaForm.paciente,telefono:citaForm.telefono,servicio:citaForm.servicio,fecha:fechaLabel,hora:citaForm.hora,precio:citaForm.precio,estadoPago:"pendiente_pago"};
-if(config?.webhookUrl){try{const r=await fetch(config.webhookUrl,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"nueva_cita",cita,paciente:{nombre:citaForm.paciente,telefono:citaForm.telefono}})});const resp=await r.json();const item=Array.isArray(resp)?resp[0]:resp;const link=item&&(item.linkPago||item.init_point);if(link){wa(citaForm.telefono,"Hola "+citaForm.paciente+", tu cita de "+citaForm.servicio+" ha sido agendada para el "+fechaLabel+" a las "+citaForm.hora+". Realiza tu pago aquí: "+link+" - Dr. Gabriel Morales")}showToast("Cita agendada exitosamente")}catch(e){showToast("Error al agendar","error")}}
+if(config?.webhookUrl){try{const r=await fetch(config.webhookUrl,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action:"nueva_cita",cita,paciente:{nombre:citaForm.paciente,telefono:citaForm.telefono}})});const resp=await r.json();const item=Array.isArray(resp)?resp[0]:resp;const link=item&&(item.linkPago||item.init_point);if(link){wa(citaForm.telefono,"Hola "+citaForm.paciente+", tu cita de "+citaForm.servicio+" ha sido agendada para el "+fechaLabel+" a las "+citaForm.hora+". Realiza tu pago aquí: "+link+" - Tu Consultorio Médico")}showToast("Cita agendada exitosamente")}catch(e){showToast("Error al agendar","error")}}
 setShowForm(false);setCitaForm({paciente:"",telefono:"",servicio:"Consulta ginecológica",precio:800,fecha:"",hora:""});loadCitasFromSheet();
 };
 const ECITA={pendiente_pago:{label:"Pago pendiente",color:"bg-amber-100 text-amber-800"},pagada:{label:"Pagada",color:"bg-emerald-100 text-emerald-800"},confirmada:{label:"Confirmada en Calendar",color:"bg-sky-100 text-sky-800"}};
@@ -411,8 +411,8 @@ a.linkPago&&el!==a.id?h("div",{className:"flex items-center gap-2"},h("a",{href:
 :h("button",{onClick:()=>{setEl(a.id);setLv("")},className:"text-sm text-brand-600 font-medium"},"+ Agregar link")),
 h("div",{className:"flex gap-2 flex-wrap"},
 estado==="pendiente_pago"&&h("button",{onClick:()=>confirmarPago(a),className:"text-emerald-700 text-sm font-medium flex items-center gap-1 bg-emerald-50 px-3 py-1.5 rounded-lg hover:bg-emerald-100"},h(Ico,{name:"Check",size:14})," Confirmar pago"),
-a.telefono&&a.linkPago&&estado==="pendiente_pago"&&h("button",{onClick:()=>wa(a.telefono,"Hola "+a.paciente+", para confirmar tu cita de "+a.servicio+" el "+a.fecha+" a las "+a.hora+", realiza tu pago aquí: "+a.linkPago+" - Dr. Gabriel Morales"),className:"text-green-700 text-sm font-medium flex items-center gap-1 bg-green-50 px-3 py-1.5 rounded-lg hover:bg-green-100"},h(Ico,{name:"Send",size:14})," Enviar link por WhatsApp"),
-a.telefono&&!a.linkPago&&h("button",{onClick:()=>wa(a.telefono,"Hola "+a.paciente+", recibimos tu solicitud de cita de "+a.servicio+" el "+a.fecha+" a las "+a.hora+" por "+money(a.precio||0)+". En breve te envío tu link de pago. - Dr. Gabriel Morales"),className:"text-green-700 text-sm font-medium flex items-center gap-1 bg-green-50 px-3 py-1.5 rounded-lg hover:bg-green-100"},h(Ico,{name:"Phone",size:14})," Avisar por WhatsApp")))}));
+a.telefono&&a.linkPago&&estado==="pendiente_pago"&&h("button",{onClick:()=>wa(a.telefono,"Hola "+a.paciente+", para confirmar tu cita de "+a.servicio+" el "+a.fecha+" a las "+a.hora+", realiza tu pago aquí: "+a.linkPago+" - Tu Consultorio Médico"),className:"text-green-700 text-sm font-medium flex items-center gap-1 bg-green-50 px-3 py-1.5 rounded-lg hover:bg-green-100"},h(Ico,{name:"Send",size:14})," Enviar link por WhatsApp"),
+a.telefono&&!a.linkPago&&h("button",{onClick:()=>wa(a.telefono,"Hola "+a.paciente+", recibimos tu solicitud de cita de "+a.servicio+" el "+a.fecha+" a las "+a.hora+" por "+money(a.precio||0)+". En breve te envío tu link de pago. - Tu Consultorio Médico"),className:"text-green-700 text-sm font-medium flex items-center gap-1 bg-green-50 px-3 py-1.5 rounded-lg hover:bg-green-100"},h(Ico,{name:"Phone",size:14})," Avisar por WhatsApp")))}));
 }
 function AProductos({data,ud,showToast,config}){
 const[modo,setModo]=useState("lista");
